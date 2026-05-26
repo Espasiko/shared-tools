@@ -1,0 +1,40 @@
+[project]
+name = "shared-tools"
+version = "0.1.0"
+description = "Almacén común de tools Python para Cerebrito y OPOS Chandra"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Spas", email = "spas@espasiko.dev"}]
+requires-python = ">=3.10"
+dependencies = [
+    "pypdf>=4.0",
+    "python-docx>=1.0",
+    "requests>=2.32",
+    "mistralai>=1.10",
+    "beautifulsoup4>=4.12",
+    "python-dotenv>=1.2",
+]
+
+[project.optional-dependencies]
+ocr-local = ["easyocr>=1.7"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/Espasiko/shared-tools"
+Issues = "https://github.com/Espasiko/shared-tools/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tools*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
